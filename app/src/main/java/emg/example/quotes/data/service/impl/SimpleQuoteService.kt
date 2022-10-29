@@ -1,7 +1,7 @@
-package emg.example.quotes.service.impl
+package emg.example.quotes.data.service.impl
 
-import emg.example.quotes.model.Quote
-import emg.example.quotes.service.QuoteService
+import emg.example.quotes.data.model.Quote
+import emg.example.quotes.data.service.QuoteService
 
 class SimpleQuoteService : QuoteService {
     override fun quotes(): List<Quote> {
