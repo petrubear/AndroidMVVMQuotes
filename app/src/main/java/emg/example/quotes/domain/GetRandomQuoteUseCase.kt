@@ -1,14 +1,14 @@
 package emg.example.quotes.domain
 
-import emg.example.quotes.data.model.Quote
-import emg.example.quotes.data.model.provider.QuoteProvider
+import emg.example.quotes.data.repository.QuoteRepository
+import emg.example.quotes.domain.model.Quote
 import javax.inject.Inject
 
 class GetRandomQuoteUseCase @Inject constructor(
-    private val provider: QuoteProvider
+    private val quoteRepository: QuoteRepository
 ) {
-    operator fun invoke(): Quote? {
-        val quotes = provider.quotes
+    suspend operator fun invoke(): Quote? {
+        val quotes = quoteRepository.getAllQuotesFromDataBase()
         if (quotes.isNotEmpty()) {
             return quotes.random()
         }
