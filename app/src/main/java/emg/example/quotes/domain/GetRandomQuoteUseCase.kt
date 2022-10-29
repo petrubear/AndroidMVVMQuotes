@@ -2,13 +2,13 @@ package emg.example.quotes.domain
 
 import emg.example.quotes.data.model.Quote
 import emg.example.quotes.data.model.provider.QuoteProvider
-import emg.example.quotes.data.repository.QuoteRepository
+import javax.inject.Inject
 
-class GetRandomQuoteUseCase {
-    private val repository = QuoteRepository()
-
+class GetRandomQuoteUseCase @Inject constructor(
+    private val provider: QuoteProvider
+) {
     operator fun invoke(): Quote? {
-        val quotes = QuoteProvider.quotes
+        val quotes = provider.quotes
         if (quotes.isNotEmpty()) {
             return quotes.random()
         }

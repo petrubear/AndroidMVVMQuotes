@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import dagger.hilt.android.AndroidEntryPoint
 import emg.example.quotes.databinding.ActivityMainBinding
 import emg.example.quotes.ui.viewmodel.QuoteViewModel
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val quoteViewModel: QuoteViewModel by viewModels()
